@@ -18,6 +18,17 @@
 ;; Disable paredit
 (remove-hook 'clojure-mode-hook #'enable-paredit-mode)
 
+(remove-hook 'nrepl-mode-hook #'enable-paredit-mode)
+(remove-hook 'nrepl-interaction-mode-hook #'enable-paredit-mode)
+
+(remove-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+(remove-hook 'M-mode-hook #'enable-paredit-mode)
+
+
+
+
 ;; Add linenumbers
-(add-hook 'clojure-mode-hook (lambda ()
-                                     (global-linum-mode 1)))
+(add-hook 'clojure-mode-hook (lambda () (global-linum-mode 1)))
+
+;; colors
+(load-theme 'deeper-blue t)
