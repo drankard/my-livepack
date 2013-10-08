@@ -32,3 +32,29 @@
 
 ;; colors
 (load-theme 'deeper-blue t)
+
+
+(defun nrepl-reset ()
+  (interactive)
+  (set-buffer "*nrepl*")
+  (goto-char (point-max))
+  (insert "(use 'system)")
+  (nrepl-return)
+  (insert "(system/reset)")
+  (nrepl-return))
+
+(global-set-key (kbd "C-c C v") 'nrepl-reset)
+
+(defun setup-windows ()
+  "Sets up asome windows"
+  (interactive)
+  (delete-other-windows)
+;  (switch-to-buffer "my-upper-window")
+  (split-window-below)
+  (other-window 1)
+  (switch-to-buffer "*nrepl-server*")
+  (split-window-right)
+  (switch-to-buffer "*nrepl*"))
+
+(global-set-key (kbd "C-c C-v") 'nrepl-reset)
+(global-set-key (kbd "C-c C-s") 'setup-windows)

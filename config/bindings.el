@@ -11,3 +11,5 @@
 (global-set-key [(meta right)]   'forward-sexp)
 (global-set-key [(meta left)]   'backward-sexp)
 (global-set-key [(control left)] 'backward-sexp)
+
+(global-set-key (kbd "C-i") 'goto-line)
